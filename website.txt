@@ -1,0 +1,820 @@
+import { useState } from 'react';
+
+export function ClientForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Order submitted:', formData);
+    // Handle form submission here
+    alert('Commande soumise avec succès !');
+  };
+
+  return (
+    <div id="client-form" className="max-w-4xl mx-auto">
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 lg:p-12 shadow-lg border border-blue-100">
+        <div className="text-center space-y-4 mb-8">
+          <h2 className="text-2xl lg:text-3xl font-semibold text-gray-900">Réservez Votre Terrain Maintenant</h2>
+          <p className="text-gray-600 text-lg">Remplissez vos informations pour sécuriser votre ARDHI Terrain Premium</p>
+          <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-4 inline-block">
+            <p className="text-yellow-800 font-medium">🎯 Entrée automatique au tirage au sort incluse !</p>
+          </div>
+        </div>
+
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Name Field */}
+          <div className="space-y-3">
+            <label htmlFor="name" className="text-sm font-medium text-gray-700">
+              Nom Complet
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              placeholder="Entrez votre nom complet"
+            />
+          </div>
+
+          {/* Email Field */}
+          <div className="space-y-3">
+            <label htmlFor="email" className="text-sm font-medium text-gray-700">
+              Adresse Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              placeholder="votre@email.com"
+            />
+          </div>
+
+          {/* Phone Field */}
+          <div className="space-y-3">
+            <label htmlFor="phone" className="text-sm font-medium text-gray-700">
+              Numéro de Téléphone
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              placeholder="+33 1 23 45 67 89"
+            />
+          </div>
+
+          {/* Address Field */}
+          <div className="space-y-3">
+            <label htmlFor="address" className="text-sm font-medium text-gray-700">
+              Adresse Postale
+            </label>
+            <textarea
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleInputChange}
+              required
+              rows={3}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all"
+              placeholder="Votre adresse complète"
+            />
+          </div>
+
+          {/* Buy Now Button - Full width on both columns */}
+          <div className="lg:col-span-2 pt-4">
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-semibold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg text-lg"
+            >
+              Acheter Maintenant - 125 000 € + Entrée Loterie
+            </button>
+          </div>
+        </form>
+
+        <div className="text-center mt-6 space-y-2">
+          <p className="text-sm text-gray-500">Achat sécurisé • Documentation légale • Garantie 30 jours</p>
+          <p className="text-xs text-gray-400">🔒 Paiement 100% sécurisé | 📋 Tous documents légaux inclus | 🎁 Entrée loterie automatique</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+import { Header } from './components/Header';
+import { ProductImage } from './components/ProductImage';
+import { ProductDetails } from './components/ProductDetails';
+import { ProductDescription } from './components/ProductDescription';
+import { ClientForm } from './components/ClientForm';
+
+export default function App() {
+  const mainProductImage = "https://images.unsplash.com/photo-1685266325930-ffe4937f6eb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBsYW5kJTIwcGxvdCUyMHByb3BlcnR5JTIwZGV2ZWxvcG1lbnR8ZW58MXx8fHwxNzU3NjEwOTc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+  
+  const thumbnailImages = [
+    "https://images.unsplash.com/photo-1659287588324-670572d02cc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2YWNhbnQlMjBsYW5kJTIwYWVyaWFsJTIwdmlldyUyMGRldmVsb3BtZW50fGVufDF8fHx8MTc1NzYxMDk4MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    mainProductImage,
+    "https://images.unsplash.com/photo-1689574666546-75e1036e55fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXNpZGVudGlhbCUyMGxhbmQlMjBkZXZlbG9wbWVudCUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NTc2MTA5ODR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "https://images.unsplash.com/photo-1606500307322-61cf2c98aab3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9wZXJ0eSUyMHN1cnZleSUyMGxhbmQlMjBtZWFzdXJlbWVudHxlbnwxfHx8fDE3NTc2MTA5ODd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+  ];
+
+  return (
+    <div className="min-h-screen bg-white">
+      <Header />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Product section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-16 items-start">
+          {/* Product image - centered alignment */}
+          <div className="flex justify-center lg:justify-start">
+            <div className="w-full max-w-lg">
+              <ProductImage 
+                mainImage={mainProductImage}
+                thumbnails={thumbnailImages}
+              />
+            </div>
+          </div>
+
+          {/* Product details - centered alignment */}
+          <div className="flex justify-center lg:justify-start">
+            <ProductDetails />
+          </div>
+        </div>
+
+        {/* Product description section */}
+        <div className="border-t border-gray-200 pt-16">
+          <ProductDescription />
+        </div>
+
+        {/* Client Form Section - At the bottom */}
+        <div className="border-t border-gray-200 pt-16 mt-16">
+          <ClientForm />
+        </div>
+      </div>
+    </div>
+  );
+}
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+export function Breadcrumb() {
+  return (
+    <div className="bg-gray-50 border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center py-3">
+          <button className="flex items-center space-x-1 text-gray-600 hover:text-black mr-4">
+            <ChevronLeft className="w-4 h-4" />
+            <span>Back</span>
+          </button>
+          
+          <nav className="flex items-center space-x-2 text-sm">
+            <a href="#" className="text-gray-600 hover:text-black">Catalogue</a>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <a href="#" className="text-gray-600 hover:text-black">Bar Chair</a>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <span className="text-black">Zenith Zen Chair</span>
+          </nav>
+        </div>
+      </div>
+    </div>
+  );
+}
+import { useState } from 'react';
+
+export function ClientForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Order submitted:', formData);
+    // Handle form submission here
+    alert('Commande soumise avec succès !');
+  };
+
+  return (
+    <div id="client-form" className="max-w-4xl mx-auto">
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 lg:p-12 shadow-lg border border-blue-100">
+        <div className="text-center space-y-4 mb-8">
+          <h2 className="text-2xl lg:text-3xl font-semibold text-gray-900">Réservez Votre Terrain Maintenant</h2>
+          <p className="text-gray-600 text-lg">Remplissez vos informations pour sécuriser votre ARDHI Terrain Premium</p>
+          <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-4 inline-block">
+            <p className="text-yellow-800 font-medium">🎯 Entrée automatique au tirage au sort incluse !</p>
+          </div>
+        </div>
+
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Name Field */}
+          <div className="space-y-3">
+            <label htmlFor="name" className="text-sm font-medium text-gray-700">
+              Nom Complet
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              placeholder="Entrez votre nom complet"
+            />
+          </div>
+
+          {/* Email Field */}
+          <div className="space-y-3">
+            <label htmlFor="email" className="text-sm font-medium text-gray-700">
+              Adresse Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              placeholder="votre@email.com"
+            />
+          </div>
+
+          {/* Phone Field */}
+          <div className="space-y-3">
+            <label htmlFor="phone" className="text-sm font-medium text-gray-700">
+              Numéro de Téléphone
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              placeholder="+33 1 23 45 67 89"
+            />
+          </div>
+
+          {/* Address Field */}
+          <div className="space-y-3">
+            <label htmlFor="address" className="text-sm font-medium text-gray-700">
+              Adresse Postale
+            </label>
+            <textarea
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleInputChange}
+              required
+              rows={3}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all"
+              placeholder="Votre adresse complète"
+            />
+          </div>
+
+          {/* Buy Now Button - Full width on both columns */}
+          <div className="lg:col-span-2 pt-4">
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-semibold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg text-lg"
+            >
+              Acheter Maintenant - 125 000 € + Entrée Loterie
+            </button>
+          </div>
+        </form>
+
+        <div className="text-center mt-6 space-y-2">
+          <p className="text-sm text-gray-500">Achat sécurisé • Documentation légale • Garantie 30 jours</p>
+          <p className="text-xs text-gray-400">🔒 Paiement 100% sécurisé | 📋 Tous documents légaux inclus | 🎁 Entrée loterie automatique</p>
+        </div>
+      </div>
+    </div>
+  );
+}export function Header() {
+  return (
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-center h-16">
+          {/* Logo with image and text */}
+          <div className="flex items-center space-x-3">
+            <img 
+              src="https://i.ibb.co/mCM2yqjQ/logo.png" 
+              alt="ARDHI Logo" 
+              className="h-10 w-auto"
+            />
+            <span className="text-2xl font-semibold text-black">ARDHI</span>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}import { Play, MapPin, Shield, Award } from 'lucide-react';
+
+export function ProductDescription() {
+  const scrollToForm = () => {
+    const formElement = document.getElementById('client-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  return (
+    <div className="space-y-12">
+      {/* Product Video - Moved to top */}
+      <div className="text-center space-y-8">
+        <div className="max-w-2xl mx-auto space-y-4">
+          <h2 className="text-2xl font-semibold">Découvrez Votre Futur Investissement Terrain</h2>
+          <p className="text-gray-700">
+            Regardez notre visite détaillée du terrain et aperçu du développement pour voir l'incroyable potentiel des parcelles ARDHI Terrain Premium.
+          </p>
+        </div>
+        
+        <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video max-w-4xl mx-auto">
+          <img
+            src="https://images.unsplash.com/photo-1685266325930-ffe4937f6eb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBsYW5kJTIwcGxvdCUyMHByb3BlcnR5JTIwZGV2ZWxvcG1lbnR8ZW58MXx8fHwxNzU3NjEwOTc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            alt="Vidéo de développement du terrain"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+            <button className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-6 transition-all transform hover:scale-110">
+              <Play className="w-12 h-12 text-gray-900 ml-1" />
+            </button>
+          </div>
+          <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded text-sm">
+            4:15
+          </div>
+        </div>
+      </div>
+
+      {/* Land Overview - Reduced to 2 paragraphs */}
+      <div className="text-center space-y-6 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-semibold">À Propos d'ARDHI Terrain Premium</h2>
+        <p className="text-gray-700 leading-relaxed text-lg">
+          Sécurisez votre avenir avec des opportunités d'investissement terrain premium. ARDHI Terrain Premium offre une 
+          valeur exceptionnelle dans des emplacements de choix, parfaits pour le développement résidentiel ou commercial. 
+          Chaque parcelle est soigneusement sélectionnée pour son potentiel de croissance et son emplacement stratégique.
+        </p>
+        <p className="text-gray-700 leading-relaxed">
+          Investissez dans la prospérité de demain aujourd'hui. Nos parcelles de terrain premium sont livrées avec des titres 
+          clairs, une excellente accessibilité, et sont situées dans des zones en développement rapide avec un fort potentiel 
+          d'appréciation. Chaque achat inclut une entrée automatique à notre loterie exclusive pour une chance de gagner une 
+          parcelle supplémentaire de 10 000 m².
+        </p>
+        
+        {/* Basic Specifications */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 bg-gray-50 rounded-lg p-6">
+          <div className="space-y-3">
+            <h3 className="font-semibold text-lg flex items-center space-x-2">
+              <MapPin className="w-5 h-5 text-green-600" />
+              <span>Emplacement & Superficie</span>
+            </h3>
+            <div className="text-gray-700 space-y-1">
+              <p>Superficie : 10 000 m² (Emplacement Premium)</p>
+              <p>Zonage : Développement Mixte</p>
+              <p>Accès : Façade Route Goudronnée</p>
+            </div>
+          </div>
+          
+          <div className="space-y-3">
+            <h3 className="font-semibold text-lg flex items-center space-x-2">
+              <Shield className="w-5 h-5 text-blue-600" />
+              <span>Légal & Caractéristiques</span>
+            </h3>
+            <div className="text-gray-700 space-y-1">
+              <p>Titre : Clair & Enregistré</p>
+              <p>Services : Disponibles à Proximité</p>
+              <p>Développement : Prêt pour Construction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Lottery Section with Buy Button */}
+      <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-8">
+        <div className="text-center space-y-6">
+          <div className="flex items-center justify-center space-x-2">
+            <Award className="w-8 h-8 text-yellow-600" />
+            <h2 className="text-2xl font-semibold text-yellow-800">🎉 Tirage au Sort Spécial !</h2>
+          </div>
+          <p className="text-yellow-700 text-lg max-w-3xl mx-auto">
+            Chaque achat vous inscrit automatiquement à notre tirage au sort exclusif pour gagner un 
+            <strong> terrain supplémentaire de 10 000 m² entièrement GRATUIT !</strong>
+          </p>
+          <p className="text-yellow-600 text-sm">Tirage mensuel. Conditions générales applicables.</p>
+          
+          {/* Buy Button */}
+          <div className="pt-4">
+            <button
+              onClick={scrollToForm}
+              className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-4 px-8 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg"
+            >
+              Réserver Maintenant - 125 000 €
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}import { Star, MapPin, Award } from 'lucide-react';
+
+export function ProductDetails() {
+  return (
+    <div className="space-y-6 max-w-lg mx-auto lg:mx-0">
+      {/* Product header */}
+      <div className="space-y-3">
+        <div className="flex items-center space-x-2 text-sm text-gray-600">
+          <MapPin className="w-4 h-4" />
+          <span>Terrain Premium</span>
+        </div>
+        <h1 className="text-2xl md:text-3xl font-semibold text-black">ARDHI Terrain Premium</h1>
+        
+        {/* Rating and testimonials */}
+        <div className="flex items-center space-x-2">
+          <div className="flex items-center">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star
+                key={star}
+                className="w-4 h-4 text-yellow-400 fill-current"
+              />
+            ))}
+          </div>
+          <span className="text-sm">4.9</span>
+          <span className="text-sm text-gray-600">500+ Investisseurs Satisfaits</span>
+        </div>
+
+        {/* Special offer badge */}
+        <div className="flex items-center space-x-2">
+          <Award className="w-5 h-5 text-green-600" />
+          <span className="text-green-600 font-medium">Offre de Lancement Spéciale + Entrée Loterie</span>
+        </div>
+      </div>
+
+      {/* Price */}
+      <div className="flex items-center space-x-4">
+        <span className="text-2xl md:text-3xl font-semibold text-black">125 000 €</span>
+        <span className="text-lg text-gray-500 line-through">150 000 €</span>
+        <span className="bg-red-500 text-white px-2 py-1 rounded text-sm">-17%</span>
+      </div>
+
+      {/* Land size */}
+      <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+        <div className="flex items-center justify-between">
+          <span className="text-green-800 font-medium">Superficie du Terrain :</span>
+          <span className="text-green-900 font-semibold text-lg">10 000 m²</span>
+        </div>
+        <p className="text-green-700 text-sm mt-1">Parfait pour le développement résidentiel ou commercial</p>
+      </div>
+
+      {/* Lottery announcement */}
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <h3 className="font-semibold text-yellow-800 mb-2">🎉 Tirage au Sort Spécial !</h3>
+        <p className="text-yellow-700 text-sm">
+          Chaque achat vous inscrit automatiquement à notre tirage au sort exclusif pour gagner un 
+          <strong> terrain supplémentaire de 10 000 m² entièrement GRATUIT !</strong>
+        </p>
+        <p className="text-yellow-600 text-xs mt-2">Tirage mensuel. Conditions générales applicables.</p>
+      </div>
+    </div>
+  );
+}import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+interface ProductImageProps {
+  mainImage: string;
+  thumbnails?: string[];
+}
+
+export function ProductImage({ mainImage, thumbnails = [] }: ProductImageProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handlePrevious = () => {
+    setCurrentImageIndex((prev) => (prev > 0 ? prev - 1 : thumbnails.length - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentImageIndex((prev) => (prev < thumbnails.length - 1 ? prev + 1 : 0));
+  };
+
+  const currentImage = thumbnails.length > 0 ? thumbnails[currentImageIndex] : mainImage;
+
+  return (
+    <div className="space-y-4">
+      {/* Main product image */}
+      <div className="relative bg-gray-50 rounded-lg overflow-hidden aspect-square">
+        <img
+          src={currentImage}
+          alt="ARDHI Premium Land"
+          className="w-full h-full object-cover"
+        />
+        
+        {/* Navigation arrows */}
+        {thumbnails.length > 1 && (
+          <>
+            <button
+              onClick={handlePrevious}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 transition-all"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 transition-all"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </>
+        )}
+
+
+      </div>
+
+      {/* Thumbnail images */}
+      <div className="flex space-x-2 overflow-x-auto pb-2">
+        <button
+          onClick={() => setCurrentImageIndex(0)}
+          className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+            currentImageIndex === 0 ? 'border-black' : 'border-gray-200'
+          }`}
+        >
+          <img src={mainImage} alt="Aerial view" className="w-full h-full object-cover" />
+        </button>
+        
+        {thumbnails.map((thumbnail, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImageIndex(index)}
+            className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+              currentImageIndex === index ? 'border-black' : 'border-gray-200'
+            }`}
+          >
+            <img src={thumbnail} alt={`View ${index + 1}`} className="w-full h-full object-cover" />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}import { useState } from 'react';
+import { RotateCcw, ChevronLeft, ChevronRight, Star, Flag } from 'lucide-react';
+
+interface ProductSidebarProps {
+  productImage: string;
+}
+
+export function ProductSidebar({ productImage }: ProductSidebarProps) {
+  const [activeTab, setActiveTab] = useState('Product Details');
+  const [selectedColor, setSelectedColor] = useState('Black');
+
+  const colors = [
+    { name: 'Black', value: '#2D2D2D' },
+    { name: 'Walnut', value: '#8B4513' },
+    { name: 'Natural', value: '#DEB887' }
+  ];
+
+  const tabs = ['Product Details', 'Packaging', 'Shipping Info'];
+
+  return (
+    <div className="bg-gray-50 p-6 rounded-lg space-y-6">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <button className="flex items-center space-x-2 text-gray-600 hover:text-black">
+          <ChevronLeft className="w-4 h-4" />
+          <span>Back</span>
+        </button>
+        <button className="flex items-center space-x-1 text-gray-600 hover:text-black text-sm">
+          <Flag className="w-4 h-4" />
+          <span>Report This Product</span>
+        </button>
+      </div>
+
+      {/* Breadcrumb */}
+      <div className="text-sm text-gray-600 flex items-center space-x-2">
+        <span>Catalogue</span>
+        <ChevronRight className="w-3 h-3" />
+        <span>Bar Chair</span>
+        <ChevronRight className="w-3 h-3" />
+        <span className="text-black">Zenith Zen Chair</span>
+      </div>
+
+      {/* Product image with 360 view */}
+      <div className="relative">
+        <div className="bg-white rounded-lg p-4 aspect-square">
+          <img
+            src={productImage}
+            alt="LuxeBar Eleganza"
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <button className="absolute top-6 right-6 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow">
+          <RotateCcw className="w-4 h-4" />
+        </button>
+        <div className="absolute bottom-4 left-4 bg-white px-2 py-1 rounded text-xs font-medium">
+          3D
+        </div>
+      </div>
+
+      {/* Product info */}
+      <div className="space-y-4">
+        <div className="text-sm text-gray-600">Bar Chair</div>
+        <h2 className="font-semibold text-lg">LuxeBar Eleganza</h2>
+        
+        {/* Rating */}
+        <div className="flex items-center space-x-2">
+          <div className="flex items-center">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star
+                key={star}
+                className={`w-3 h-3 ${
+                  star <= 4 ? 'text-yellow-400 fill-current' : 'text-gray-300'
+                }`}
+              />
+            ))}
+          </div>
+          <span className="text-xs">4.9</span>
+          <span className="text-xs text-gray-600">200+ Reviews</span>
+        </div>
+
+        {/* Description */}
+        <p className="text-sm text-gray-700 leading-relaxed">
+          Elevate your bar experience with the LuxeBar Eleganza. Crafted with sophistication and 
+          comfort in mind, this chair expertly blends style and functionality. Its sleek 
+          silhouette and luxurious upholstery exude elegance, while the sturdy frame and ergonomic 
+          design ensure optimal support and durability.
+        </p>
+
+        {/* Colors */}
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium">Colors</h3>
+          <div className="flex items-center space-x-2">
+            {colors.map((color) => (
+              <button
+                key={color.name}
+                onClick={() => setSelectedColor(color.name)}
+                className={`w-6 h-6 rounded-full border-2 transition-all ${
+                  selectedColor === color.name ? 'border-black' : 'border-gray-300'
+                }`}
+                style={{ backgroundColor: color.value }}
+              />
+            ))}
+          </div>
+          <div className="text-xs text-gray-600">{selectedColor}</div>
+        </div>
+
+        {/* Tabs */}
+        <div className="space-y-3">
+          <div className="flex space-x-4 text-xs">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`pb-1 transition-colors ${
+                  activeTab === tab
+                    ? 'text-black border-b border-black'
+                    : 'text-gray-600 hover:text-black'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab content */}
+          <div className="text-xs text-gray-700">
+            {activeTab === 'Product Details' && (
+              <div className="space-y-2">
+                <p>
+                  Indulge in the epitome of bar seating luxury with the LuxeBar Eleganza. Crafted with 
+                  meticulous attention to detail and a focus on both style and comfort, this exquisite 
+                  bar chair is designed to elevate your bar or kitchen island to new heights of sophistication.
+                </p>
+                
+                <div className="grid grid-cols-2 gap-2 mt-2">
+                  <div>
+                    <div className="font-medium">Size</div>
+                    <div className="text-gray-600">
+                      <div>Height: 43 inches</div>
+                      <div>Width: 20 inches</div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="font-medium">Material</div>
+                    <div className="text-gray-600">
+                      <div>Seat: Premium Leather</div>
+                      <div>Legs: Teak wood & Metal</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {activeTab === 'Packaging' && (
+              <p>Carefully packaged with protective materials to ensure safe delivery.</p>
+            )}
+            
+            {activeTab === 'Shipping Info' && (
+              <p>Free shipping on orders over $100. Standard delivery in 3-5 business days.</p>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}import { Star, ChevronRight } from 'lucide-react';
+
+export function ReviewSection() {
+  const reviews = [
+    {
+      id: 1,
+      name: 'Aspen Siphron',
+      date: 'May 10, 2024',
+      rating: 4.9,
+      comment: 'The LuxeBar Eleganza exceeded my expectations in every way. Not only does it look stunning in my kitchen, but it\'s also incredibly comfortable to sit in, even for extended periods. The plush cushioning and supportive backrest make it the perfect spot for enjoying my morning coffee or catching up with friends over cocktails. Plus, this sleek design adds a touch of elegance to my home decor. Highly recommend.',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face'
+    },
+    {
+      id: 2,
+      name: 'Kiana Calzoni',
+      date: 'May 8, 2024',
+      rating: 4.9,
+      comment: 'Excellent build quality and very comfortable. The design fits perfectly with my modern kitchen aesthetic.',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
+    }
+  ];
+
+  return (
+    <div className="space-y-6">
+      {/* Reviews header */}
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg font-semibold">Reviews & Rating</h2>
+        <button className="flex items-center space-x-1 text-black hover:text-gray-700 text-sm">
+          <span>View All Reviews</span>
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* Reviews list */}
+      <div className="space-y-6">
+        {reviews.map((review) => (
+          <div key={review.id} className="border-b border-gray-200 pb-6 last:border-b-0">
+            <div className="flex items-start space-x-4">
+              {/* Avatar */}
+              <div className="flex-shrink-0">
+                <img
+                  src={review.avatar}
+                  alt={review.name}
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+              </div>
+
+              {/* Review content */}
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <h4 className="font-medium">{review.name}</h4>
+                  <div className="flex items-center space-x-1">
+                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                    <span className="text-sm font-medium">{review.rating}</span>
+                  </div>
+                </div>
+
+                <div className="text-sm text-gray-600">{review.date}</div>
+
+                <p className="text-gray-700 leading-relaxed">{review.comment}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
