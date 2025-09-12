@@ -1,4 +1,5 @@
 import { Star, MapPin, Award } from 'lucide-react';
+import { AvailableLandCounter } from './AvailableLandCounter';
 
 export function ProductDetails() {
   return (
@@ -30,13 +31,25 @@ export function ProductDetails() {
           <Award className="w-5 h-5 text-green-600" />
           <span className="text-green-600 font-medium">Offre de Lancement Spéciale + Entrée Loterie</span>
         </div>
+        
+        {/* Available land counter */}
+        <div className="mt-1">
+          <AvailableLandCounter count={49} />
+        </div>
       </div>
 
       {/* Price */}
-      <div className="flex items-center space-x-4">
-        <span className="text-2xl md:text-3xl font-semibold text-black">125 000 €</span>
-        <span className="text-lg text-gray-500 line-through">150 000 €</span>
-        <span className="bg-red-500 text-white px-2 py-1 rounded text-sm">-17%</span>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-4">
+          <span className="text-2xl md:text-3xl font-semibold text-black">125 000 €</span>
+          <span className="text-lg text-gray-500 line-through">150 000 €</span>
+          <span className="bg-red-500 text-white px-2 py-1 rounded text-sm">-17%</span>
+        </div>
+        
+        {/* Compact counter for medium/large screens */}
+        <div className="hidden md:block">
+          <AvailableLandCounter count={49} variant="compact" />
+        </div>
       </div>
 
       {/* Land size */}

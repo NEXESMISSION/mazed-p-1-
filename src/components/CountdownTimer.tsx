@@ -52,32 +52,35 @@ export const CountdownTimer = () => {
   return (
     <div className="bg-gradient-to-r from-[#76B935] to-[#4D8F1C] text-white py-3 sm:py-4 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center">
-          <div className="mb-1 text-sm sm:text-base font-medium">
-            <span className="hidden sm:inline">Offre spéciale: </span>
-            <span>Réservez avant le {formattedDate}</span>
+        <div className="flex flex-col sm:flex-row justify-between items-center">
+          <div className="text-center sm:text-left mb-2 sm:mb-0">
+            <div className="mb-1 text-sm sm:text-base font-medium">
+              <span className="hidden sm:inline">Offre spéciale: </span>
+              <span>Réservez avant le {formattedDate}</span>
+            </div>
+            <div className="flex justify-center items-center space-x-2 sm:space-x-4">
+              <div className="flex flex-col items-center">
+                <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.days)}</div>
+                <div className="text-xs sm:text-sm">JOURS</div>
+              </div>
+              <div className="text-xl sm:text-2xl font-bold">:</div>
+              <div className="flex flex-col items-center">
+                <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.hours)}</div>
+                <div className="text-xs sm:text-sm">HEURES</div>
+              </div>
+              <div className="text-xl sm:text-2xl font-bold">:</div>
+              <div className="flex flex-col items-center">
+                <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.minutes)}</div>
+                <div className="text-xs sm:text-sm">MIN</div>
+              </div>
+              <div className="text-xl sm:text-2xl font-bold">:</div>
+              <div className="flex flex-col items-center">
+                <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.seconds)}</div>
+                <div className="text-xs sm:text-sm">SEC</div>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-center items-center space-x-2 sm:space-x-4">
-            <div className="flex flex-col items-center">
-              <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.days)}</div>
-              <div className="text-xs sm:text-sm">JOURS</div>
-            </div>
-            <div className="text-xl sm:text-2xl font-bold">:</div>
-            <div className="flex flex-col items-center">
-              <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.hours)}</div>
-              <div className="text-xs sm:text-sm">HEURES</div>
-            </div>
-            <div className="text-xl sm:text-2xl font-bold">:</div>
-            <div className="flex flex-col items-center">
-              <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.minutes)}</div>
-              <div className="text-xs sm:text-sm">MIN</div>
-            </div>
-            <div className="text-xl sm:text-2xl font-bold">:</div>
-            <div className="flex flex-col items-center">
-              <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.seconds)}</div>
-              <div className="text-xs sm:text-sm">SEC</div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>

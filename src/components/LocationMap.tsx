@@ -24,10 +24,7 @@ export function LocationMap({ latitude, longitude, googleMapsUrl }: LocationMapP
         </div>
         <div className="bg-white p-4 flex items-center justify-between">
           <div>
-            <h3 className="font-semibold text-lg">Emplacement du Terrain</h3>
-            <p className="text-gray-600 text-sm">
-              Coordonnées: {latitude}, {longitude}
-            </p>
+            <h3 className="font-semibold text-lg">Voir sur Google Maps</h3>
           </div>
           <a
             href={googleMapsUrl}

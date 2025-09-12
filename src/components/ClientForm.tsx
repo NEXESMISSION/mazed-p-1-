@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AvailableLandCounter } from './AvailableLandCounter';
 
 export function ClientForm() {
   const [formData, setFormData] = useState({
@@ -147,11 +148,18 @@ export function ClientForm() {
       <AlertMessage />
       
       <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 lg:p-12 shadow-lg border border-blue-100">
-        <div className="text-center space-y-4 mb-8">
-          <h2 className="text-2xl lg:text-3xl font-semibold text-gray-900">Réservez Votre Terrain Maintenant</h2>
-          <p className="text-gray-600 text-lg">Remplissez vos informations pour sécuriser votre ARDHI Terrain Premium</p>
-          <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-4 inline-block">
-            <p className="text-yellow-800 font-medium">🎯 Entrée automatique au tirage au sort incluse !</p>
+        <div className="space-y-4 mb-8 text-center">
+          <h2 className="text-3xl font-semibold" id="client-form">Réserver Votre Terrain Premium</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Complétez ce formulaire pour réserver votre parcelle ARDHI Terrain Premium et bénéficier de nos offres de lancement exclusives. Un membre de notre équipe vous contactera dans les 24 heures.
+          </p>
+
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-4">
+            <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-4">
+              <p className="text-yellow-800 font-medium">🎯 Entrée automatique au tirage au sort incluse !</p>
+            </div>
+            
+            <AvailableLandCounter count={49} variant="highlight" className="w-full md:w-auto" />
           </div>
         </div>
 
