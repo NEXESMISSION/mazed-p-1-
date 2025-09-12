@@ -10,13 +10,13 @@ export function ProductDescription() {
   };
 
   return (
-    <div className="space-y-12" dir="rtl">
+    <div className="space-y-12">
       {/* Product Video - Moved to top */}
       <div className="text-center space-y-8">
         <div className="max-w-2xl mx-auto space-y-4">
-          <h2 className="text-2xl font-semibold">اكتشف استثمارك العقاري المستقبلي</h2>
+          <h2 className="text-2xl font-semibold">Découvrez Votre Futur Investissement Terrain</h2>
           <p className="text-gray-700">
-            شاهد جولتنا التفصيلية للأرض ونظرة عامة عن التطوير لمشاهدة الإمكانات المذهلة لقطع أراضي أرضي المميزة.
+            Regardez notre visite détaillée du terrain et aperçu du développement pour voir l'incroyable potentiel des parcelles ARDHI Terrain Premium.
           </p>
         </div>
         
@@ -48,39 +48,42 @@ export function ProductDescription() {
 
       {/* Land Overview - Reduced to 2 paragraphs */}
       <div className="text-center space-y-6 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold">عن أرض أرضي المميزة</h2>
+        <h2 className="text-3xl font-semibold">À Propos d'ARDHI Terrain Premium</h2>
         <p className="text-gray-700 leading-relaxed text-lg">
-          أمّن مستقبلك مع فرص الاستثمار المميزة في الأراضي. تقدم أرض أرضي المميزة قيمة استثنائية في مواقع مختارة بعناية، مثالية للتطوير السكني أو التجاري. 
-          يتم اختيار كل قطعة بعناية لإمكانات نموها وموقعها الاستراتيجي.
+          Sécurisez votre avenir avec des opportunités d'investissement terrain premium. ARDHI Terrain Premium offre une 
+          valeur exceptionnelle dans des emplacements de choix, parfaits pour le développement résidentiel ou commercial. 
+          Chaque parcelle est soigneusement sélectionnée pour son potentiel de croissance et son emplacement stratégique.
         </p>
         <p className="text-gray-700 leading-relaxed">
-          استثمر في ازدهار الغد اليوم. تأتي قطع أراضينا المميزة مع صكوك ملكية واضحة، وسهولة وصول ممتازة، وتقع في مناطق سريعة النمو ذات إمكانيات عالية لارتفاع قيمتها. 
-          كل عملية شراء تشمل دخولًا تلقائيًا في قرعتنا الحصرية للحصول على فرصة للفوز بقطعة أرض إضافية بمساحة 10 000 m².
+          Investissez dans la prospérité de demain aujourd'hui. Nos parcelles de terrain premium sont livrées avec des titres 
+          clairs, une excellente accessibilité, et sont situées dans des zones en développement rapide avec un fort potentiel 
+          d'appréciation. Chaque achat inclut une entrée automatique à notre loterie exclusive pour une chance de gagner une 
+          parcelle supplémentaire de 10 000 m².
         </p>
         
         {/* Basic Specifications */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 bg-gray-50 rounded-lg p-6">
           <div className="space-y-3">
-            <h3 className="font-semibold text-lg flex items-center space-x-2 rtl:space-x-reverse">
+            <h3 className="font-semibold text-lg flex items-center space-x-2">
               <MapPin className="w-5 h-5 text-green-600" />
-              <span>الموقع والمساحة</span>
+              <span>Emplacement & Superficie</span>
             </h3>
             <div className="text-gray-700 space-y-1">
-              <p>المساحة: 10 000 m² (موقع مميز)</p>
-              <p>التصنيف: تطوير متعدد الاستخدامات</p>
-              <p>الوصول: واجهة على طريق معبد</p>
+              <p>Superficie : 10 000 m² (Emplacement Premium)</p>
+              <p>Zonage : Développement Mixte</p>
+              <p>Accès : Façade Route Goudronnée</p>
             </div>
           </div>
           
           <div className="space-y-3">
-            <h3 className="font-semibold text-lg flex items-center space-x-2 rtl:space-x-reverse">
+            <h3 className="font-semibold text-lg flex items-center space-x-2">
               <Shield className="w-5 h-5 text-blue-600" />
-              <span>الجانب القانوني والخصائص</span>
+              <span>Légal & Caractéristiques</span>
             </h3>
             <div className="text-gray-700 space-y-1">
-              <p>الصك: واضح ومسجل</p>
-              <p>الخدمات: متوفرة في الجوار</p>
-              <p>التطوير: جاهز للبناء</p>
+              <p>Titre : Clair & Enregistré</p>
+              <p>Services : Disponibles à Proximité</p>
+              <p>Développement : Prêt pour Construction</p>
             </div>
           </div>
         </div>
@@ -89,15 +92,15 @@ export function ProductDescription() {
       {/* Lottery Section with Buy Button */}
       <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-8">
         <div className="text-center space-y-6">
-          <div className="flex items-center justify-center space-x-2 rtl:space-x-reverse">
+          <div className="flex items-center justify-center space-x-2">
             <Award className="w-8 h-8 text-yellow-600" />
-            <h2 className="text-2xl font-semibold text-yellow-800">🎉 سحب خاص ومميز!</h2>
+            <h2 className="text-2xl font-semibold text-yellow-800">🎉 Tirage au Sort Spécial !</h2>
           </div>
           <p className="text-yellow-700 text-lg max-w-3xl mx-auto">
-            كل عملية شراء تسجلك تلقائيًا في سحبنا الحصري للفوز بـ
-            <strong> قطعة أرض إضافية بمساحة 10 000 m² مجانًا تمامًا!</strong>
+            Chaque achat vous inscrit automatiquement à notre tirage au sort exclusif pour gagner un 
+            <strong> terrain supplémentaire de 10 000 m² entièrement GRATUIT !</strong>
           </p>
-          <p className="text-yellow-600 text-sm">سحب شهري. تطبق الشروط والأحكام.</p>
+          <p className="text-yellow-600 text-sm">Tirage mensuel. Conditions générales applicables.</p>
           
           {/* Buy Button */}
           <div className="pt-4">
@@ -105,7 +108,7 @@ export function ProductDescription() {
               onClick={scrollToForm}
               className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-4 px-8 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg"
             >
-              احجز الآن - 125 000 €
+              Réserver Maintenant - 125 000 €
             </button>
           </div>
         </div>

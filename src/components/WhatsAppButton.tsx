@@ -37,7 +37,7 @@ export const WhatsAppButton = () => {
       <div 
         className="bg-blue-500 rounded-full p-3 shadow-lg cursor-pointer hover:bg-blue-600 transition-all"
         onClick={handleCallClick}
-        title="اتصل بنا"
+        title="Call us"
       >
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
@@ -54,7 +54,7 @@ export const WhatsAppButton = () => {
       <div 
         className="bg-green-500 rounded-full p-3 shadow-lg cursor-pointer hover:bg-green-600 transition-all"
         onClick={handleWhatsAppClick}
-        title="تواصل عبر واتساب"
+        title="Contact via WhatsApp"
       >
         <svg 
           xmlns="http://www.w3.org/2000/svg" 

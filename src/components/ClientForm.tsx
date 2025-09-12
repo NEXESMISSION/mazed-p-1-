@@ -90,15 +90,15 @@ export function ClientForm() {
                 </svg>
               </div>
               <div className="ml-3">
-                <h3 className="text-sm font-medium text-green-800">تم تقديم الطلب بنجاح!</h3>
+                <h3 className="text-sm font-medium text-green-800">Commande soumise avec succès !</h3>
                 <div className="mt-2 text-sm text-green-700">
-                  <p>شكراً لحجزك. سيتواصل معك فريقنا قريبًا.</p>
+                  <p>Merci pour votre réservation. Notre équipe vous contactera prochainement.</p>
                 </div>
                 <button 
                   onClick={() => setAlertVisible(false)}
                   className="mt-2 text-sm font-medium bg-green-100 px-3 py-1 rounded-md text-green-800 hover:bg-green-200 transition-colors"
                 >
-                  إغلاق
+                  Fermer
                 </button>
               </div>
             </div>
@@ -143,19 +143,20 @@ export function ClientForm() {
   }
 
   return (
-    <div id="client-form" className="max-w-4xl mx-auto" dir="rtl">
+    <div id="client-form" className="max-w-4xl mx-auto">
+      {/* Alert message that appears on form submission */}
       <AlertMessage />
       
       <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 lg:p-12 shadow-lg border border-blue-100">
         <div className="space-y-4 mb-8 text-center">
-          <h2 className="text-3xl font-semibold" id="client-form">احجز أرضك المميزة</h2>
+          <h2 className="text-3xl font-semibold" id="client-form">Réserver Votre Terrain Premium</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            أكمل هذا النموذج لحجز قطعة أرض أرضي المميزة والاستفادة من عروض الإطلاق الحصرية. سيتصل بك أحد أعضاء فريقنا خلال 24 ساعة.
+            Complétez ce formulaire pour réserver votre parcelle ARDHI Terrain Premium et bénéficier de nos offres de lancement exclusives. Un membre de notre équipe vous contactera dans les 24 heures.
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-4">
             <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-4">
-              <p className="text-yellow-800 font-medium">🎯 دخول تلقائي في السحب متضمن!</p>
+              <p className="text-yellow-800 font-medium">🎯 Entrée automatique au tirage au sort incluse !</p>
             </div>
             
             <AvailableLandCounter count={49} variant="highlight" className="w-full md:w-auto" />
@@ -166,7 +167,7 @@ export function ClientForm() {
           {/* Name Field */}
           <div className="space-y-3">
             <label htmlFor="name" className="text-sm font-medium text-gray-700">
-              الاسم الكامل
+              Nom Complet
             </label>
             <input
               type="text"
@@ -176,14 +177,14 @@ export function ClientForm() {
               onChange={handleInputChange}
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              placeholder="أدخل اسمك الكامل"
+              placeholder="Entrez votre nom complet"
             />
           </div>
 
           {/* Email Field */}
           <div className="space-y-3">
             <label htmlFor="email" className="text-sm font-medium text-gray-700">
-              البريد الإلكتروني
+              Adresse Email
             </label>
             <input
               type="email"
@@ -193,14 +194,14 @@ export function ClientForm() {
               onChange={handleInputChange}
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              placeholder="بريدك@مثال.com"
+              placeholder="votre@email.com"
             />
           </div>
 
           {/* Phone Field */}
           <div className="space-y-3">
             <label htmlFor="phone" className="text-sm font-medium text-gray-700">
-              رقم الهاتف
+              Numéro de Téléphone
             </label>
             <input
               type="tel"
@@ -210,14 +211,14 @@ export function ClientForm() {
               onChange={handleInputChange}
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              placeholder="+216 xx xxx xxx"
+              placeholder="+33 1 23 45 67 89"
             />
           </div>
 
           {/* Address Field */}
           <div className="space-y-3">
             <label htmlFor="address" className="text-sm font-medium text-gray-700">
-              العنوان
+              Adresse
             </label>
             <textarea
               id="address"
@@ -227,7 +228,7 @@ export function ClientForm() {
               required
               rows={3}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all"
-              placeholder="عنوانك الكامل"
+              placeholder="Votre adresse complète"
             />
           </div>
 
@@ -238,14 +239,14 @@ export function ClientForm() {
               disabled={isSubmitting}
               className={`w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-semibold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg text-lg ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              {isSubmitting ? 'جاري المعالجة...' : 'اشترِ الآن - 125 000 € + دخول السحب'}
+              {isSubmitting ? 'Traitement en cours...' : 'Acheter Maintenant - 125 000 € + Entrée Loterie'}
             </button>
           </div>
         </form>
 
         <div className="text-center mt-6 space-y-2">
-          <p className="text-sm text-gray-500">شراء آمن • وثائق قانونية • ضمان 30 يوم</p>
-          <p className="text-xs text-gray-400">🔒 دفع آمن 100% | 📋 جميع المستندات القانونية مشمولة | 🎁 دخول تلقائي في السحب</p>
+          <p className="text-sm text-gray-500">Achat sécurisé • Documentation légale • Garantie 30 jours</p>
+          <p className="text-xs text-gray-400">🔒 Paiement 100% sécurisé | 📋 Tous documents légaux inclus | 🎁 Entrée loterie automatique</p>
         </div>
       </div>
     </div>
