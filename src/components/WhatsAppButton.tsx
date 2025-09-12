@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 export const WhatsAppButton = () => {
   const phoneNumber = '+21657037136';
   const message = 'اريد انعرف المزيد من لتفاصيل'; // "I want to know more details" in Arabic
+  const callLinkRef = useRef<HTMLAnchorElement>(null);
   
   const handleWhatsAppClick = () => {
     // Encode the message for URL
@@ -14,12 +15,24 @@ export const WhatsAppButton = () => {
   };
 
   const handleCallClick = () => {
-    // Create tel: URL to initiate a phone call
-    window.location.href = `tel:${phoneNumber}`;
+    // Use the hidden anchor tag to initiate the call
+    if (callLinkRef.current) {
+      callLinkRef.current.click();
+    }
   };
 
   return (
     <div className="fixed bottom-6 right-6 flex flex-col space-y-4 z-50">
+      {/* Hidden anchor for phone call */}
+      <a 
+        ref={callLinkRef} 
+        href={`tel:${phoneNumber}`} 
+        style={{ display: 'none' }} 
+        aria-hidden="true"
+      >
+        Call
+      </a>
+      
       {/* Phone Call Button */}
       <div 
         className="bg-blue-500 rounded-full p-3 shadow-lg cursor-pointer hover:bg-blue-600 transition-all"
