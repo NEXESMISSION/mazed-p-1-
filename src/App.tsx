@@ -4,6 +4,7 @@ import { ProductDetails } from './components/ProductDetails';
 import { ProductDescription } from './components/ProductDescription';
 import { ClientForm } from './components/ClientForm';
 import { WhatsAppButton } from './components/WhatsAppButton';
+import { CountdownTimer } from './components/CountdownTimer';
 
 export default function App() {
   const mainProductImage = "https://images.unsplash.com/photo-1685266325930-ffe4937f6eb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBsYW5kJTIwcGxvdCUyMHByb3BlcnR5JTIwZGV2ZWxvcG1lbnR8ZW58MXx8fHwxNzU3NjEwOTc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
@@ -17,6 +18,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white">
+      <CountdownTimer />
       <Header />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
