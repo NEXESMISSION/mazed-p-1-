@@ -1,4 +1,5 @@
 import { Play, MapPin, Shield, Award } from 'lucide-react';
+import { LocationMap } from './LocationMap';
 
 export function ProductDescription() {
   const scrollToForm = () => {
@@ -19,7 +20,16 @@ export function ProductDescription() {
           </p>
         </div>
         
-        <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video max-w-4xl mx-auto">
+        {/* Location Map */}
+        <div className="max-w-4xl mx-auto">
+          <LocationMap 
+            latitude={34.9375278}
+            longitude={10.6767778}
+            googleMapsUrl="https://www.google.com/maps?q=34.9375278,10.6767778&entry=gps&lucs=,94284487,94224825,94227247,94227248,94231188,47071704,47069508,94218641,94282134,94203019,47084304&g_ep=CAISEjI1LjM1LjAuNzk5MDg4MzU1MBgAINeCAypjLDk0Mjg0NDg3LDk0MjI0ODI1LDk0MjI3MjQ3LDk0MjI3MjQ4LDk0MjMxMTg4LDQ3MDcxNzA0LDQ3MDY5NTA4LDk0MjE4NjQxLDk0MjgyMTM0LDk0MjAzMDE5LDQ3MDg0MzA0QgJUTg%3D%3D&skid=40203e5a-0f81-4f37-8c8e-8436da22dea2&g_st=ipc"
+          />
+        </div>
+        
+        <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video max-w-4xl mx-auto mt-8">
           <img
             src="https://images.unsplash.com/photo-1685266325930-ffe4937f6eb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBsYW5kJTIwcGxvdCUyMHByb3BlcnR5JTIwZGV2ZWxvcG1lbnR8ZW58MXx8fHwxNzU3NjEwOTc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
             alt="Vidéo de développement du terrain"
