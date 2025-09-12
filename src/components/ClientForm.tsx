@@ -210,7 +210,7 @@ export function ClientForm() {
           {/* Address Field */}
           <div className="space-y-3">
             <label htmlFor="address" className="text-sm font-medium text-gray-700">
-              Adresse Postale
+              Adresse
             </label>
             <textarea
               id="address"
