@@ -43,40 +43,40 @@ export const CountdownTimer = () => {
   };
 
   // Format date to display
-  const formattedDate = targetDate.toLocaleDateString('fr-FR', {
+  const formattedDate = targetDate.toLocaleDateString('ar-SA', {
     day: 'numeric',
     month: 'long',
     year: 'numeric'
   });
 
   return (
-    <div className="bg-gradient-to-r from-[#76B935] to-[#4D8F1C] text-white py-3 sm:py-4 px-4">
+    <div className="bg-gradient-to-r from-[#76B935] to-[#4D8F1C] text-white py-3 sm:py-4 px-4" dir="rtl">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-center">
-          <div className="text-center sm:text-left mb-2 sm:mb-0">
+        <div className="flex flex-col items-center justify-center w-full">
+          <div className="text-center mb-2 w-full">
             <div className="mb-1 text-sm sm:text-base font-medium">
-              <span className="hidden sm:inline">Offre spéciale: </span>
-              <span>Réservez avant le {formattedDate}</span>
+              <span className="hidden sm:inline">العرض الخاص: </span>
+              <span>احجز قبل {formattedDate}</span>
             </div>
-            <div className="flex justify-center items-center space-x-2 sm:space-x-4">
+            <div className="flex justify-center items-center space-x-2 sm:space-x-4 rtl:space-x-reverse">
               <div className="flex flex-col items-center">
                 <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.days)}</div>
-                <div className="text-xs sm:text-sm">JOURS</div>
+                <div className="text-xs sm:text-sm">أيام</div>
               </div>
               <div className="text-xl sm:text-2xl font-bold">:</div>
               <div className="flex flex-col items-center">
                 <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.hours)}</div>
-                <div className="text-xs sm:text-sm">HEURES</div>
+                <div className="text-xs sm:text-sm">ساعات</div>
               </div>
               <div className="text-xl sm:text-2xl font-bold">:</div>
               <div className="flex flex-col items-center">
                 <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.minutes)}</div>
-                <div className="text-xs sm:text-sm">MIN</div>
+                <div className="text-xs sm:text-sm">دقائق</div>
               </div>
               <div className="text-xl sm:text-2xl font-bold">:</div>
               <div className="flex flex-col items-center">
                 <div className="text-xl sm:text-2xl font-bold">{formatNumber(timeLeft.seconds)}</div>
-                <div className="text-xs sm:text-sm">SEC</div>
+                <div className="text-xs sm:text-sm">ثواني</div>
               </div>
             </div>
           </div>
