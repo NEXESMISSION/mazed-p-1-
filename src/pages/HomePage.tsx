@@ -18,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, title, description, price
   return (
     <Link 
       to={`/product/${id}`} 
-      className="bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-lg border border-gray-200"
+      className="bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-lg border border-gray-200 mx-auto md:mx-0 max-w-xl"
     >
       <div className="relative">
         <img 
@@ -26,13 +26,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, title, description, price
           alt={title}
           className="w-full h-48 object-cover"
         />
-        <div className="absolute top-3 right-3 bg-green-500 text-white px-2 py-1 rounded text-xs font-medium">
+        <div className="absolute top-3 right-3 bg-blue-600 text-white px-2 py-1 rounded text-xs font-medium">
           Haut Standing
         </div>
       </div>
-      <div className="p-5">
+      <div className="p-5 text-left">
         <h3 className="font-semibold text-lg text-gray-800">{title}</h3>
-        <p className="text-gray-600 text-sm line-clamp-2 mt-1">{description}</p>
+        <p className="text-gray-600 text-sm line-clamp-2 mt-1 text-justify">{description}</p>
         
         <div className="flex items-center mt-2 text-sm text-gray-600">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -50,7 +50,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, title, description, price
         </div>
         
         <div className="flex items-center justify-between mt-4">
-          <span className="text-green-600 font-semibold">{price}</span>
+          <span className="text-blue-600 font-semibold">{price}</span>
           <button className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-3 py-1 text-sm transition-all">
             Voir détails
           </button>
@@ -61,7 +61,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, title, description, price
 };
 
 export const HomePage = () => {
-  // Sample products data
+  // Single product data
   const products = [
     {
       id: "s-plus-2-gremda",
@@ -69,35 +69,8 @@ export const HomePage = () => {
       description: "Appartement S+2 idéal pour résidence ou investissement dans l'un des quartiers les plus prisés de Sfax.",
       price: "1 600 TND/m²",
       image: "https://i.ibb.co/HLWJcfdh/a1.png",
-      location: "Sfax, Route Gremda km 6",
+      location: "Sfax, Route Gremda km 6, Markaz Kamoun",
       size: "126 m²"
-    },
-    {
-      id: "s-plus-3-gremda",
-      title: "Appartement Haut Standing S+3",
-      description: "Spacieux appartement S+3 avec finitions de haute qualité et emplacement stratégique à Sfax.",
-      price: "1 700 TND/m²",
-      image: "https://i.ibb.co/QFgjf6S6/2.png",
-      location: "Sfax, Route Gremda km 5",
-      size: "145 m²"
-    },
-    {
-      id: "s-plus-1-ville",
-      title: "Studio Haut Standing S+1",
-      description: "Studio moderne avec finitions haut de gamme, parfait pour investissement locatif au centre-ville.",
-      price: "1 800 TND/m²",
-      image: "https://i.ibb.co/vx5c4nNW/3.png",
-      location: "Sfax, Centre-ville",
-      size: "65 m²"
-    },
-    {
-      id: "s-plus-4-route-mahdia",
-      title: "Villa Haut Standing S+4",
-      description: "Magnifique villa avec finitions luxueuses, grand jardin et garage pour 2 voitures.",
-      price: "2 200 TND/m²",
-      image: "https://i.ibb.co/s9TQT0cm/4.png",
-      location: "Sfax, Route Mahdia",
-      size: "300 m²"
     }
   ];
 
@@ -108,15 +81,22 @@ export const HomePage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl p-8 mb-10 text-white text-center">
+          <div className="mb-4 flex justify-center">
+            <img 
+              src="https://i.ibb.co/wZy2Cnjz/459279692-907587088073691-400628220378730618-n-removebg-preview.png" 
+              alt="MAZED Logo" 
+              className="h-20 w-auto"
+            />
+          </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Bienvenue chez MAZED Immobilier</h1>
           <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto">
-            Découvrez nos appartements haut standing dans les meilleurs quartiers de Sfax
+            Découvrez nos appartements haut standing dans les meilleurs quartiers en Tunisie
           </p>
         </div>
         
         {/* Filter Section - Simple version */}
         <div className="bg-white p-4 rounded-lg shadow mb-8">
-          <h2 className="text-lg font-semibold mb-4">Filtrer les propriétés</h2>
+          <h2 className="text-lg font-semibold mb-4">Rechercher une propriété</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Type de bien</label>
@@ -129,25 +109,48 @@ export const HomePage = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Quartier</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Ville</label>
               <select className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                <option>Tous les quartiers</option>
-                <option>Route Gremda</option>
-                <option>Centre-ville</option>
-                <option>Route Mahdia</option>
-                <option>Autres quartiers</option>
+                <option>Toute la Tunisie</option>
+                <option>Ariana</option>
+                <option>Béja</option>
+                <option>Ben Arous</option>
+                <option>Bizerte</option>
+                <option>Gabès</option>
+                <option>Gafsa</option>
+                <option>Jendouba</option>
+                <option>Kairouan</option>
+                <option>Kasserine</option>
+                <option>Kébili</option>
+                <option>Le Kef</option>
+                <option>Mahdia</option>
+                <option>Manouba</option>
+                <option>Médenine</option>
+                <option>Monastir</option>
+                <option>Nabeul</option>
+                <option>Sfax</option>
+                <option>Sidi Bouzid</option>
+                <option>Siliana</option>
+                <option>Sousse</option>
+                <option>Tataouine</option>
+                <option>Tozeur</option>
+                <option>Tunis</option>
+                <option>Zaghouan</option>
               </select>
             </div>
             
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Budget max</label>
-              <select className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                <option>Sans limite</option>
-                <option>150 000 TND</option>
-                <option>200 000 TND</option>
-                <option>250 000 TND</option>
-                <option>300 000 TND</option>
-              </select>
+              <div className="flex rounded-md shadow-sm">
+                <input
+                  type="number"
+                  placeholder="Montant"
+                  className="flex-1 rounded-l-md border-r-0 border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                />
+                <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                  TND
+                </span>
+              </div>
             </div>
             
             <div className="flex items-end">
@@ -157,11 +160,43 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
+
+        {/* Property Highlight */}
+        <div className="bg-white p-6 rounded-lg shadow mb-8 text-center">
+          <h2 className="text-xl font-semibold mb-4">Appartement Haut Standing S+2</h2>
+          <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
+            <div className="bg-blue-50 px-4 py-2 rounded-lg flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span className="text-gray-800">Route Gremda km 6, Markaz Kamoun</span>
+            </div>
+            
+            <div className="bg-blue-50 px-4 py-2 rounded-lg flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
+              </svg>
+              <span className="text-gray-800">126 m²</span>
+            </div>
+            
+            <div className="bg-blue-50 px-4 py-2 rounded-lg flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="text-gray-800">1 600 TND/m²</span>
+            </div>
+          </div>
+          
+          <Link to="/product/s-plus-2-gremda" className="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all">
+            Voir les détails
+          </Link>
+        </div>
         
         {/* Products Grid */}
         <div>
-          <h2 className="text-2xl font-semibold mb-6">Nos propriétés à vendre</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-2xl font-semibold mb-6">Notre appartement à vendre</h2>
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1">
             {products.map((product) => (
               <ProductCard 
                 key={product.id}
@@ -181,7 +216,7 @@ export const HomePage = () => {
         <div className="mt-16 bg-white p-8 rounded-lg shadow">
           <h2 className="text-2xl font-semibold mb-4">À Propos de MAZED</h2>
           <p className="text-gray-700">
-            Avec MAZED Immobilier, sécurisez votre futur dans l'un des quartiers les plus prisés de Sfax. 
+            Avec MAZED Immobilier, sécurisez votre futur dans les meilleurs quartiers en Tunisie. 
             Nos appartements sont soigneusement conçus pour allier confort moderne et valeur patrimoniale durable.
             Nous nous engageons à fournir des propriétés de haute qualité avec une documentation légale complète 
             et un service client exceptionnel.
@@ -250,8 +285,8 @@ export const HomePage = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">MAZED Immobilier</h3>
               <p className="text-sm text-gray-400">
-                Spécialiste de l'immobilier haut standing à Sfax. Nous offrons des propriétés de qualité exceptionnelle 
-                dans les meilleurs quartiers de la ville.
+                Spécialiste de l'immobilier haut standing en Tunisie. Nous offrons des propriétés de qualité exceptionnelle 
+                dans les meilleurs emplacements du pays.
               </p>
             </div>
             
@@ -262,7 +297,7 @@ export const HomePage = () => {
                   <svg className="w-5 h-5 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                   </svg>
-                  <span>Sfax, Tunisie – Route Gremda km 6, Markaz Kamoun</span>
+                  <span>Tunisie – Multiples emplacements de prestige</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

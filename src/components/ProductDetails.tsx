@@ -27,7 +27,7 @@ export function ProductDetails() {
 
         {/* Special offer badge */}
         <div className="flex items-center space-x-2">
-          <span className="text-green-600 font-medium">Appartement Haut Standing S+2</span>
+          <span className="text-blue-600 font-medium">Appartement Haut Standing S+2</span>
         </div>
       </div>
 
@@ -35,30 +35,30 @@ export function ProductDetails() {
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <span className="text-2xl md:text-3xl font-semibold text-black">1 600 TND/m²</span>
-          <span className="bg-green-500 text-white px-2 py-1 rounded text-sm">Haut Standing</span>
+          <span className="bg-blue-600 text-white px-2 py-1 rounded text-sm">Haut Standing</span>
         </div>
         
 
       </div>
 
       {/* Apartment details */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
         <div className="flex items-center justify-between">
-          <span className="text-green-800 font-medium">Superficie de l'Appartement :</span>
-          <span className="text-green-900 font-semibold text-lg">126 m²</span>
+          <span className="text-blue-800 font-medium">Superficie de l'Appartement :</span>
+          <span className="text-blue-900 font-semibold text-lg">126 m²</span>
         </div>
-        <p className="text-green-700 text-sm mt-1">Appartement S+2 idéal pour résidence ou investissement</p>
+        <p className="text-blue-700 text-sm mt-1">Appartement S+2 idéal pour résidence ou investissement</p>
       </div>
 
       {/* Location details */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
         <h3 className="font-semibold text-blue-800 mb-2">📍 Localisation Stratégique</h3>
         <p className="text-blue-700 text-sm">
-          Tunisie, Sfax – Route Gremda km 6, Markaz Kamoun
+          Tunisie – Route Gremda km 6, Markaz Kamoun
           <br/>
-          <strong>Façade : Route Gremda</strong>
+          <strong>Façade : Route Principale</strong>
         </p>
-        <p className="text-blue-600 text-xs mt-2">Emplacement stratégique dans un quartier prisé de Sfax</p>
+        <p className="text-blue-600 text-xs mt-2">Emplacement stratégique dans un quartier prisé</p>
       </div>
     </div>
   );

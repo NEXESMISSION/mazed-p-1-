@@ -83,14 +83,14 @@ export function ProductDescription() {
       <div className="text-center space-y-6 max-w-4xl mx-auto">
         <h2 className="text-3xl font-semibold">À Propos de MAZED</h2>
         <p className="text-gray-700 leading-relaxed text-lg">
-          Avec MAZED Immobilier, sécurisez votre futur dans l'un des quartiers les plus prisés de Sfax. Nos appartements sont soigneusement conçus pour allier confort moderne et valeur patrimoniale durable.
+          Avec MAZED Immobilier, sécurisez votre futur dans les meilleurs emplacements en Tunisie. Nos appartements sont soigneusement conçus pour allier confort moderne et valeur patrimoniale durable.
         </p>
         
         {/* Basic Specifications */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 bg-gray-50 rounded-lg p-6">
           <div className="space-y-3">
             <h3 className="font-semibold text-lg flex items-center space-x-2">
-              <MapPin className="w-5 h-5 text-green-600" />
+              <MapPin className="w-5 h-5 text-blue-600" />
               <span>Emplacement & Superficie</span>
             </h3>
             <div className="text-gray-700 space-y-1">
@@ -122,7 +122,7 @@ export function ProductDescription() {
           <div className="pt-4">
             <button
               onClick={scrollToForm}
-              className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-4 px-8 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg"
+              className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg"
             >
               Réserver Maintenant
             </button>

@@ -50,7 +50,7 @@ export const CountdownTimer = () => {
   });
 
   return (
-    <div className="bg-gradient-to-r from-[#76B935] to-[#4D8F1C] text-white py-3 sm:py-4 px-4">
+    <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-3 sm:py-4 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-center items-center">
           <div className="text-center mb-2 sm:mb-0">
