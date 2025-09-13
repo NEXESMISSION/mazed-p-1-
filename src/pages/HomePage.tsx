@@ -81,7 +81,7 @@ export const HomePage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl p-8 mb-10 text-white text-center">
-          <div className="mb-4 flex justify-center">
+          <div className="mb-2 flex justify-center">
             <img 
               src="https://i.ibb.co/wZy2Cnjz/459279692-907587088073691-400628220378730618-n-removebg-preview.png" 
               alt="MAZED Logo" 
