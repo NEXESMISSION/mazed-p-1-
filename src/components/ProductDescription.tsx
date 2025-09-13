@@ -39,7 +39,7 @@ export function ProductDescription() {
         
         <div className="relative bg-gray-900 rounded-xl overflow-hidden max-w-md mx-auto mt-8" style={{ aspectRatio: '9/16' }}>
           <img
-            src="https://i.ibb.co/NngLLn3f/Whats-App-Image-2025-09-13-at-15-37-06.jpg"
+            src="https://i.ibb.co/PGJW3XBn/8.png"
             alt="Vidéo de l'appartement"
             className="w-full h-full object-cover"
           />

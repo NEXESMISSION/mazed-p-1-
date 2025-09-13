@@ -7,13 +7,16 @@ import { WhatsAppButton } from './components/WhatsAppButton';
 import { CountdownTimer } from './components/CountdownTimer';
 
 export default function App() {
-  const mainProductImage = "https://i.ibb.co/NngLLn3f/Whats-App-Image-2025-09-13-at-15-37-06.jpg";
+  const mainProductImage = "https://i.ibb.co/HLWJcfdh/a1.png";
   
   const thumbnailImages = [
-    "https://i.ibb.co/NngLLn3f/Whats-App-Image-2025-09-13-at-15-37-06.jpg",
-    mainProductImage,
-    "https://i.ibb.co/NngLLn3f/Whats-App-Image-2025-09-13-at-15-37-06.jpg",
-    "https://i.ibb.co/NngLLn3f/Whats-App-Image-2025-09-13-at-15-37-06.jpg"
+    "https://i.ibb.co/HLWJcfdh/a1.png", // a1 as first image
+    "https://i.ibb.co/QFgjf6S6/2.png",
+    "https://i.ibb.co/vx5c4nNW/3.png",
+    "https://i.ibb.co/s9TQT0cm/4.png",
+    "https://i.ibb.co/spZ67rWd/5.png",
+    "https://i.ibb.co/CKpVCQb9/6.png",
+    "https://i.ibb.co/chR8MfzH/8.png"
   ];
 
   return (
