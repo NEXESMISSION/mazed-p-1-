@@ -105,6 +105,9 @@ export const HomePage = () => {
                 <option>Appartement</option>
                 <option>Villa</option>
                 <option>Studio</option>
+                <option>Terrain agricole</option>
+                <option>Terrain constructible</option>
+                <option>Terrain industriel</option>
               </select>
             </div>
             
