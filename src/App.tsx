@@ -7,13 +7,13 @@ import { WhatsAppButton } from './components/WhatsAppButton';
 import { CountdownTimer } from './components/CountdownTimer';
 
 export default function App() {
-  const mainProductImage = "https://images.unsplash.com/photo-1685266325930-ffe4937f6eb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBsYW5kJTIwcGxvdCUyMHByb3BlcnR5JTIwZGV2ZWxvcG1lbnR8ZW58MXx8fHwxNzU3NjEwOTc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+  const mainProductImage = "https://i.ibb.co/NngLLn3f/Whats-App-Image-2025-09-13-at-15-37-06.jpg";
   
   const thumbnailImages = [
-    "https://images.unsplash.com/photo-1659287588324-670572d02cc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2YWNhbnQlMjBsYW5kJTIwYWVyaWFsJTIwdmlldyUyMGRldmVsb3BtZW50fGVufDF8fHx8MTc1NzYxMDk4MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "https://i.ibb.co/NngLLn3f/Whats-App-Image-2025-09-13-at-15-37-06.jpg",
     mainProductImage,
-    "https://images.unsplash.com/photo-1689574666546-75e1036e55fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXNpZGVudGlhbCUyMGxhbmQlMjBkZXZlbG9wbWVudCUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NTc2MTA5ODR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    "https://images.unsplash.com/photo-1606500307322-61cf2c98aab3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9wZXJ0eSUyMHN1cnZleSUyMGxhbmQlMjBtZWFzdXJlbWVudHxlbnwxfHx8fDE3NTc2MTA5ODd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+    "https://i.ibb.co/NngLLn3f/Whats-App-Image-2025-09-13-at-15-37-06.jpg",
+    "https://i.ibb.co/NngLLn3f/Whats-App-Image-2025-09-13-at-15-37-06.jpg"
   ];
 
   return (

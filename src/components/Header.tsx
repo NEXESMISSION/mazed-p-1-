@@ -6,11 +6,11 @@ export function Header() {
           {/* Logo with image and text */}
           <div className="flex items-center space-x-3">
             <img 
-              src="https://i.ibb.co/mCM2yqjQ/logo.png" 
-              alt="ARDHI Logo" 
+              src="https://i.ibb.co/wZy2Cnjz/459279692-907587088073691-400628220378730618-n-removebg-preview.png" 
+              alt="MAZED Logo" 
               className="h-10 w-auto"
             />
-            <span className="text-2xl font-semibold text-black">ARDHI</span>
+            <span className="text-2xl font-semibold text-black">MAZED</span>
           </div>
         </div>
       </div>

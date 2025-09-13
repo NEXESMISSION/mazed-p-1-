@@ -1,5 +1,4 @@
-import { Star, MapPin, Award } from 'lucide-react';
-import { AvailableLandCounter } from './AvailableLandCounter';
+import { Star, MapPin } from 'lucide-react';
 
 export function ProductDetails() {
   return (
@@ -8,9 +7,9 @@ export function ProductDetails() {
       <div className="space-y-3">
         <div className="flex items-center space-x-2 text-sm text-gray-600">
           <MapPin className="w-4 h-4" />
-          <span>Terrain Premium</span>
+          <span>Appartement Haut Standing S+2</span>
         </div>
-        <h1 className="text-2xl md:text-3xl font-semibold text-black">ARDHI Terrain Premium</h1>
+        <h1 className="text-2xl md:text-3xl font-semibold text-black">MAZED Appartement Haut Standing</h1>
         
         {/* Rating and testimonials */}
         <div className="flex items-center space-x-2">
@@ -28,47 +27,38 @@ export function ProductDetails() {
 
         {/* Special offer badge */}
         <div className="flex items-center space-x-2">
-          <Award className="w-5 h-5 text-green-600" />
-          <span className="text-green-600 font-medium">Offre de Lancement Spéciale + Entrée Loterie</span>
-        </div>
-        
-        {/* Available land counter */}
-        <div className="mt-1">
-          <AvailableLandCounter count={49} />
+          <span className="text-green-600 font-medium">Appartement Haut Standing S+2</span>
         </div>
       </div>
 
       {/* Price */}
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <span className="text-2xl md:text-3xl font-semibold text-black">125 000 €</span>
-          <span className="text-lg text-gray-500 line-through">150 000 €</span>
-          <span className="bg-red-500 text-white px-2 py-1 rounded text-sm">-17%</span>
+          <span className="text-2xl md:text-3xl font-semibold text-black">1 600 TND/m²</span>
+          <span className="bg-green-500 text-white px-2 py-1 rounded text-sm">Haut Standing</span>
         </div>
         
-        {/* Compact counter for medium/large screens */}
-        <div className="hidden md:block">
-          <AvailableLandCounter count={49} variant="compact" />
-        </div>
+
       </div>
 
-      {/* Land size */}
+      {/* Apartment details */}
       <div className="bg-green-50 border border-green-200 rounded-lg p-4">
         <div className="flex items-center justify-between">
-          <span className="text-green-800 font-medium">Superficie du Terrain :</span>
-          <span className="text-green-900 font-semibold text-lg">10 000 m²</span>
+          <span className="text-green-800 font-medium">Superficie de l'Appartement :</span>
+          <span className="text-green-900 font-semibold text-lg">126 m²</span>
         </div>
-        <p className="text-green-700 text-sm mt-1">Parfait pour le développement résidentiel ou commercial</p>
+        <p className="text-green-700 text-sm mt-1">Appartement S+2 idéal pour résidence ou investissement</p>
       </div>
 
-      {/* Lottery announcement */}
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-        <h3 className="font-semibold text-yellow-800 mb-2">🎉 Tirage au Sort Spécial !</h3>
-        <p className="text-yellow-700 text-sm">
-          Chaque achat vous inscrit automatiquement à notre tirage au sort exclusif pour gagner un 
-          <strong> terrain supplémentaire de 10 000 m² entièrement GRATUIT !</strong>
+      {/* Location details */}
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <h3 className="font-semibold text-blue-800 mb-2">📍 Localisation Stratégique</h3>
+        <p className="text-blue-700 text-sm">
+          Tunisie, Sfax – Route Gremda km 6, Markaz Kamoun
+          <br/>
+          <strong>Façade : Route Gremda</strong>
         </p>
-        <p className="text-yellow-600 text-xs mt-2">Tirage mensuel. Conditions générales applicables.</p>
+        <p className="text-blue-600 text-xs mt-2">Emplacement stratégique dans un quartier prisé de Sfax</p>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { AvailableLandCounter } from './AvailableLandCounter';
 
 export function ClientForm() {
   const [formData, setFormData] = useState({
@@ -149,17 +148,13 @@ export function ClientForm() {
       
       <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 lg:p-12 shadow-lg border border-blue-100">
         <div className="space-y-4 mb-8 text-center">
-          <h2 className="text-3xl font-semibold" id="client-form">Réserver Votre Terrain Premium</h2>
+          <h2 className="text-3xl font-semibold" id="client-form">Réserver Votre Appartement S+2</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Complétez ce formulaire pour réserver votre parcelle ARDHI Terrain Premium et bénéficier de nos offres de lancement exclusives. Un membre de notre équipe vous contactera dans les 24 heures.
+            Complétez ce formulaire pour réserver votre appartement MAZED haut standing S+2 et bénéficier de nos offres exclusives. Un membre de notre équipe vous contactera dans les 24h.
           </p>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-4">
-            <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-4">
-              <p className="text-yellow-800 font-medium">🎯 Entrée automatique au tirage au sort incluse !</p>
-            </div>
-            
-            <AvailableLandCounter count={49} variant="highlight" className="w-full md:w-auto" />
+          <div className="bg-blue-100 border border-blue-300 rounded-lg p-4 mt-4">
+            <p className="text-blue-800 font-medium">🔒 Achat sécurisé • 📋 Documentation légale complète • ✅ Garantie qualité</p>
           </div>
         </div>
 
@@ -239,14 +234,14 @@ export function ClientForm() {
               disabled={isSubmitting}
               className={`w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-semibold py-4 px-8 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg text-lg ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              {isSubmitting ? 'Traitement en cours...' : 'Acheter Maintenant - 125 000 € + Entrée Loterie'}
+              {isSubmitting ? 'Traitement en cours...' : 'Réserver Maintenant - Appartement S+2'}
             </button>
           </div>
         </form>
 
         <div className="text-center mt-6 space-y-2">
-          <p className="text-sm text-gray-500">Achat sécurisé • Documentation légale • Garantie 30 jours</p>
-          <p className="text-xs text-gray-400">🔒 Paiement 100% sécurisé | 📋 Tous documents légaux inclus | 🎁 Entrée loterie automatique</p>
+          <p className="text-sm text-gray-500">Achat sécurisé • Documentation légale complète • Garantie qualité</p>
+          <p className="text-xs text-gray-400">🔒 Achat sécurisé | 📋 Documentation légale complète | ✅ Garantie qualité</p>
         </div>
       </div>
     </div>

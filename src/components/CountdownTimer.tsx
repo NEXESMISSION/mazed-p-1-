@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 export const CountdownTimer = () => {
-  // Calculate target date (7 days from now)
+  // Calculate target date (10 days from now)
   const calculateTargetDate = () => {
     const now = new Date();
     const targetDate = new Date(now);
-    targetDate.setDate(now.getDate() + 7);
+    targetDate.setDate(now.getDate() + 10);
     return targetDate;
   };
 
@@ -52,8 +52,8 @@ export const CountdownTimer = () => {
   return (
     <div className="bg-gradient-to-r from-[#76B935] to-[#4D8F1C] text-white py-3 sm:py-4 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-center">
-          <div className="text-center sm:text-left mb-2 sm:mb-0">
+        <div className="flex flex-col sm:flex-row justify-center items-center">
+          <div className="text-center mb-2 sm:mb-0">
             <div className="mb-1 text-sm sm:text-base font-medium">
               <span className="hidden sm:inline">Offre spéciale: </span>
               <span>Réservez avant le {formattedDate}</span>

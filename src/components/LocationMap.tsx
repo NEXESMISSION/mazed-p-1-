@@ -7,8 +7,8 @@ interface LocationMapProps {
 }
 
 export function LocationMap({ latitude, longitude, googleMapsUrl }: LocationMapProps) {
-  // Create the Google Maps embed URL
-  const embedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${latitude},${longitude}&zoom=15`;
+  // Use the provided iframe URL directly
+  const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1711.4490202029017!2d10.721632490217916!3d34.78308019866682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1301d382c77efd6b%3A0x5e63a6c3757621e0!2sMunicipalit%C3%A9%20Gremda!5e1!3m2!1sen!2stn!4v1757773068549!5m2!1sen!2stn`;
   
   return (
     <div className="space-y-6">

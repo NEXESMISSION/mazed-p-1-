@@ -1,4 +1,5 @@
-import { Play, MapPin, Shield, Award } from 'lucide-react';
+import React, { useState } from 'react';
+import { Play, MapPin, Shield } from 'lucide-react';
 import { LocationMap } from './LocationMap';
 
 export function ProductDescription() {
@@ -9,14 +10,21 @@ export function ProductDescription() {
     }
   };
 
+  // State for video modal
+  const [showVideoModal, setShowVideoModal] = useState(false);
+
+  // Video popup handlers
+  const openVideoModal = () => setShowVideoModal(true);
+  const closeVideoModal = () => setShowVideoModal(false);
+
   return (
     <div className="space-y-12">
       {/* Product Video - Moved to top */}
       <div className="text-center space-y-8">
         <div className="max-w-2xl mx-auto space-y-4">
-          <h2 className="text-2xl font-semibold">Découvrez Votre Futur Investissement Terrain</h2>
+          <h2 className="text-2xl font-semibold">Découvrez Votre Futur Appartement</h2>
           <p className="text-gray-700">
-            Regardez notre visite détaillée du terrain et aperçu du développement pour voir l'incroyable potentiel des parcelles ARDHI Terrain Premium.
+            Regardez notre visite détaillée de l'appartement MAZED Haut Standing S+2 et découvrez son emplacement stratégique.
           </p>
         </div>
         
@@ -25,40 +33,56 @@ export function ProductDescription() {
           <LocationMap 
             latitude={34.9375278}
             longitude={10.6767778}
-            googleMapsUrl="https://www.google.com/maps?q=34.9375278,10.6767778&entry=gps&lucs=,94284487,94224825,94227247,94227248,94231188,47071704,47069508,94218641,94282134,94203019,47084304&g_ep=CAISEjI1LjM1LjAuNzk5MDg4MzU1MBgAINeCAypjLDk0Mjg0NDg3LDk0MjI0ODI1LDk0MjI3MjQ3LDk0MjI3MjQ4LDk0MjMxMTg4LDQ3MDcxNzA0LDQ3MDY5NTA4LDk0MjE4NjQxLDk0MjgyMTM0LDk0MjAzMDE5LDQ3MDg0MzA0QgJUTg%3D%3D&skid=40203e5a-0f81-4f37-8c8e-8436da22dea2&g_st=ipc"
+            googleMapsUrl="https://maps.app.goo.gl/j2AkNNmTekQx4EFB6"
           />
         </div>
         
-        <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video max-w-4xl mx-auto mt-8">
+        <div className="relative bg-gray-900 rounded-xl overflow-hidden max-w-md mx-auto mt-8" style={{ aspectRatio: '9/16' }}>
           <img
-            src="https://images.unsplash.com/photo-1685266325930-ffe4937f6eb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBsYW5kJTIwcGxvdCUyMHByb3BlcnR5JTIwZGV2ZWxvcG1lbnR8ZW58MXx8fHwxNzU3NjEwOTc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            alt="Vidéo de développement du terrain"
+            src="https://i.ibb.co/NngLLn3f/Whats-App-Image-2025-09-13-at-15-37-06.jpg"
+            alt="Vidéo de l'appartement"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-            <button className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-6 transition-all transform hover:scale-110">
+            <button 
+              onClick={openVideoModal}
+              className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-6 transition-all transform hover:scale-110"
+            >
               <Play className="w-12 h-12 text-gray-900 ml-1" />
             </button>
           </div>
-          <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded text-sm">
-            4:15
-          </div>
         </div>
+
+        {/* Video Modal */}
+        {showVideoModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+            <div className="relative w-full" style={{ maxWidth: '400px' }}>
+              <button 
+                onClick={closeVideoModal}
+                className="absolute -top-10 right-0 text-white hover:text-gray-300 text-2xl"
+              >
+                &times; Fermer
+              </button>
+              <div style={{ aspectRatio: '9/16' }} className="w-full">
+                <iframe
+                  className="w-full h-full"
+                  src="https://youtube.com/embed/q5TjS03MQvQ"
+                  title="Vidéo de l'appartement"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Land Overview - Reduced to 2 paragraphs */}
       <div className="text-center space-y-6 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold">À Propos d'ARDHI Terrain Premium</h2>
+        <h2 className="text-3xl font-semibold">À Propos de MAZED</h2>
         <p className="text-gray-700 leading-relaxed text-lg">
-          Sécurisez votre avenir avec des opportunités d'investissement terrain premium. ARDHI Terrain Premium offre une 
-          valeur exceptionnelle dans des emplacements de choix, parfaits pour le développement résidentiel ou commercial. 
-          Chaque parcelle est soigneusement sélectionnée pour son potentiel de croissance et son emplacement stratégique.
-        </p>
-        <p className="text-gray-700 leading-relaxed">
-          Investissez dans la prospérité de demain aujourd'hui. Nos parcelles de terrain premium sont livrées avec des titres 
-          clairs, une excellente accessibilité, et sont situées dans des zones en développement rapide avec un fort potentiel 
-          d'appréciation. Chaque achat inclut une entrée automatique à notre loterie exclusive pour une chance de gagner une 
-          parcelle supplémentaire de 10 000 m².
+          Avec MAZED Immobilier, sécurisez votre futur dans l'un des quartiers les plus prisés de Sfax. Nos appartements sont soigneusement conçus pour allier confort moderne et valeur patrimoniale durable.
         </p>
         
         {/* Basic Specifications */}
@@ -69,46 +93,37 @@ export function ProductDescription() {
               <span>Emplacement & Superficie</span>
             </h3>
             <div className="text-gray-700 space-y-1">
-              <p>Superficie : 10 000 m² (Emplacement Premium)</p>
-              <p>Zonage : Développement Mixte</p>
-              <p>Accès : Façade Route Goudronnée</p>
+              <p>Localisation : Tunisie, Sfax – Route Gremda km 6, Markaz Kamoun</p>
+              <p>Superficie : 126 m²</p>
+              <p>Façade : Route Gremda</p>
             </div>
           </div>
           
           <div className="space-y-3">
             <h3 className="font-semibold text-lg flex items-center space-x-2">
               <Shield className="w-5 h-5 text-blue-600" />
-              <span>Légal & Caractéristiques</span>
+              <span>Caractéristiques</span>
             </h3>
             <div className="text-gray-700 space-y-1">
+              <p>Haut standing</p>
+              <p>Emplacement stratégique</p>
+              <p>Idéal pour résidence ou investissement</p>
               <p>Titre : Clair & Enregistré</p>
-              <p>Services : Disponibles à Proximité</p>
-              <p>Développement : Prêt pour Construction</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Lottery Section with Buy Button */}
-      <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-8">
+      {/* Reservation Button */}
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8">
         <div className="text-center space-y-6">
-          <div className="flex items-center justify-center space-x-2">
-            <Award className="w-8 h-8 text-yellow-600" />
-            <h2 className="text-2xl font-semibold text-yellow-800">🎉 Tirage au Sort Spécial !</h2>
-          </div>
-          <p className="text-yellow-700 text-lg max-w-3xl mx-auto">
-            Chaque achat vous inscrit automatiquement à notre tirage au sort exclusif pour gagner un 
-            <strong> terrain supplémentaire de 10 000 m² entièrement GRATUIT !</strong>
-          </p>
-          <p className="text-yellow-600 text-sm">Tirage mensuel. Conditions générales applicables.</p>
-          
           {/* Buy Button */}
           <div className="pt-4">
             <button
               onClick={scrollToForm}
               className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-4 px-8 rounded-lg transition-all transform hover:scale-105 shadow-lg text-lg"
             >
-              Réserver Maintenant - 125 000 €
+              Réserver Maintenant
             </button>
           </div>
         </div>
