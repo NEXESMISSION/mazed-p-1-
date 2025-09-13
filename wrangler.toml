@@ -1,0 +1,14 @@
+# Cloudflare Pages configuration
+name = "mazed-apartments"
+type = "webpack"
+
+[site]
+bucket = "./build"
+entry-point = "."
+
+[build]
+command = "npm run build"
+output_dir = "build"
+
+[build.environment]
+NODE_VERSION = "16"
