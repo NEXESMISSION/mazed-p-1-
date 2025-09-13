@@ -1,15 +1,16 @@
 import React, { useRef } from 'react';
 
 export const WhatsAppButton = () => {
-  const phoneNumber = '+21657037136';
+  const phoneNumber = '+21658415513';
+  const whatsappNumber = '+21658415521';
   const message = 'اريد انعرف المزيد من لتفاصيل'; // "I want to know more details" in Arabic
   const callLinkRef = useRef<HTMLAnchorElement>(null);
   
   const handleWhatsAppClick = () => {
     // Encode the message for URL
     const encodedMessage = encodeURIComponent(message);
-    // Create WhatsApp URL with phone number and message
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    // Create WhatsApp URL with WhatsApp number and message
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     // Open in new tab
     window.open(whatsappUrl, '_blank');
   };
