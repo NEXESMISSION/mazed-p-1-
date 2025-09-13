@@ -18,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, title, description, price
   return (
     <Link 
       to={`/product/${id}`} 
-      className="bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-lg border border-gray-200 mx-auto md:mx-0 max-w-xl"
+      className="bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-lg border border-gray-200 w-full"
     >
       <div className="relative">
         <img 
@@ -199,7 +199,7 @@ export const HomePage = () => {
         {/* Products Grid */}
         <div>
           <h2 className="text-2xl font-semibold mb-6">Notre appartement à vendre</h2>
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 justify-items-start">
             {products.map((product) => (
               <ProductCard 
                 key={product.id}
