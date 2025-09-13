@@ -18,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, title, description, price
   return (
     <Link 
       to={`/product/${id}`} 
-      className="bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-lg border border-gray-200 w-full"
+      className="bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-lg border border-gray-200 w-full h-full flex flex-col"
     >
       <div className="relative">
         <img 
@@ -61,7 +61,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, title, description, price
 };
 
 export const HomePage = () => {
-  // Single product data
+  // Products data
   const products = [
     {
       id: "s-plus-2-gremda",
@@ -71,6 +71,15 @@ export const HomePage = () => {
       image: "https://i.ibb.co/HLWJcfdh/a1.png",
       location: "Sfax, Route Gremda km 6, Markaz Kamoun",
       size: "126 m²"
+    },
+    {
+      id: "s-plus-2-bouasida",
+      title: "Appartement Haut Standing S+2",
+      description: "Appartement S+2 idéal pour résidence ou investissement dans un emplacement stratégique à Bouasida.",
+      price: "1 600 TND/m²",
+      image: "https://i.ibb.co/jZf9kpw8/14.png",
+      location: "Rue de Tunisie, klm 4 Bouasida, زنقة الشعري",
+      size: "100 m²"
     }
   ];
 
@@ -198,8 +207,8 @@ export const HomePage = () => {
         
         {/* Products Grid */}
         <div>
-          <h2 className="text-2xl font-semibold mb-6">Notre appartement à vendre</h2>
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 justify-items-start">
+          <h2 className="text-2xl font-semibold mb-6">Nos appartements à vendre</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {products.map((product) => (
               <ProductCard 
                 key={product.id}
