@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { initializeProductTimer, calculateTimeLeft, formatNumber } from '../utils/TimerUtils';
 
 export const CountdownTimer = () => {
-  // Calculate target date (10 days from now)
-  const calculateTargetDate = () => {
-    const now = new Date();
-    const targetDate = new Date(now);
-    targetDate.setDate(now.getDate() + 10);
-    return targetDate;
-  };
-
-  const [targetDate] = useState(calculateTargetDate());
+  // Product ID for this timer - matches the route parameter in App.tsx
+  const productId = 's-plus-2-gremda';
+  
+  // Initialize timer with product ID to ensure persistence and unique timers per product
+  const [timerDates, setTimerDates] = useState(() => initializeProductTimer(productId));
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -18,32 +15,18 @@ export const CountdownTimer = () => {
   });
 
   useEffect(() => {
-    const calculateTimeLeft = () => {
-      const difference = targetDate.getTime() - new Date().getTime();
-      
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-        
-        setTimeLeft({ days, hours, minutes, seconds });
-      }
+    const updateTimeLeft = () => {
+      setTimeLeft(calculateTimeLeft(timerDates.endDate));
     };
 
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
+    updateTimeLeft();
+    const timer = setInterval(updateTimeLeft, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate]);
-
-  // Format to ensure two digits (e.g., 01, 02, etc.)
-  const formatNumber = (num: number) => {
-    return num < 10 ? `0${num}` : num;
-  };
+  }, [timerDates.endDate]);
 
   // Format date to display
-  const formattedDate = targetDate.toLocaleDateString('fr-FR', {
+  const formattedDate = timerDates.endDate.toLocaleDateString('fr-FR', {
     day: 'numeric',
     month: 'long',
     year: 'numeric'
