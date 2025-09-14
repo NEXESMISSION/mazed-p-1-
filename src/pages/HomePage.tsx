@@ -15,10 +15,19 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, title, description, price, image, location, size }) => {
+  // Function to handle click and scroll to top
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <Link 
       to={`/product/${id}`} 
       className="bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-lg border border-gray-200 w-full h-full flex flex-col"
+      onClick={handleClick}
     >
       <div className="relative">
         <img 
@@ -200,7 +209,11 @@ export const HomePage = () => {
             </div>
           </div>
           
-          <Link to="/product/s-plus-2-gremda" className="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all">
+          <Link 
+            to="/product/s-plus-2-gremda" 
+            className="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             Voir les détails
           </Link>
         </div>
